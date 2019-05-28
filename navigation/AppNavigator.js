@@ -20,7 +20,7 @@ export default createAppContainer(createSwitchNavigator({
   Auth: AuthStack
 }))
 
-FROR PAGE TRANSICTIONS
+// PAGE TRANSICTIONS
 
 // import createAnimatedSwitchNavigator from 'react-navigation-animated-switch';
 // import { Transition } from 'react-native-reanimated';
