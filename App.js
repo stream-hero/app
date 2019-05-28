@@ -1,6 +1,7 @@
 import React from 'react';
 import { Platform, StatusBar, StyleSheet, View } from 'react-native';
 import { AppLoading, Asset, Font, Icon } from 'expo';
+// import { socketID } from 'socket-io.client';
 // import { Accelerometer } from "react-native-sensors";
 
 import AppNavigator from './navigation/AppNavigator';
@@ -10,6 +11,7 @@ import OtherScreen from './screens/OtherScreen'
 import SignInScreen from './screens/SignInScreen'
 import LoginScreen from './screens/LoginScreen'
 
+// Creating the socket-client instance will automatically connect to the server.
 
 const styles = StyleSheet.create({
   container: {
@@ -22,6 +24,8 @@ class App extends React.Component {
   state = {
     isLoadingComplete: false,
   };
+
+	// socket = SocketIOClient('http://localhost:3000');
 
   render() {
     if (!this.state.isLoadingComplete && !this.props.skipLoadingScreen) {

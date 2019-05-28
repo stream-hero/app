@@ -1,12 +1,8 @@
 import React from 'react';
 import {
-	ActivityIndicator,
-	AsyncStorage,
-	Button,
   Image,
   Platform,
   ScrollView,
-  StatusBar,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -19,7 +15,6 @@ import { MonoText } from '../components/StyledText';
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
     header: null,
-    title: 'Welcome to Stream Hero'
   };
 
   render() {
@@ -27,10 +22,6 @@ export default class HomeScreen extends React.Component {
       <View style={styles.container}>
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
           <View style={styles.welcomeContainer}>
-	          <View style={styles.container}>
-	            <Button title="Show me more of the app" onPress={this._showMoreApp} />
-	            <Button title="Actually, sign me out :)" onPress={this._signOutAsync} />
-	          </View>
             <Image
               source={
                 __DEV__
@@ -51,7 +42,7 @@ export default class HomeScreen extends React.Component {
             </View>
 
             <Text style={styles.getStartedText}>
-              Change this text and your app will automatically reload!
+              Change this text and your app will automatically reload.
             </Text>
           </View>
 
@@ -69,7 +60,6 @@ export default class HomeScreen extends React.Component {
             <MonoText style={styles.codeHighlightText}>navigation/MainTabNavigator.js</MonoText>
           </View>
         </View>
-
       </View>
     );
   }
@@ -106,21 +96,12 @@ export default class HomeScreen extends React.Component {
       'https://docs.expo.io/versions/latest/guides/up-and-running.html#can-t-see-your-changes'
     );
   };
-
-  _showMoreApp = () => {
-    this.props.navigation.navigate('Other');
-  };
-
-  _signOutAsync = async () => {
-    await AsyncStorage.clear();
-    this.props.navigation.navigate('Auth');
-  };
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FFF',
+    backgroundColor: '#fff',
   },
   developmentModeText: {
     marginBottom: 20,
@@ -130,14 +111,12 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   contentContainer: {
-    paddingTop: 20,
-    alignItems: 'center',
-    justifyContent: 'center',
+    paddingTop: 30,
   },
   welcomeContainer: {
     alignItems: 'center',
     marginTop: 10,
-    marginBottom: 10,
+    marginBottom: 20,
   },
   welcomeImage: {
     width: 100,
@@ -168,10 +147,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   tabBarInfoContainer: {
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
+    flex: 1,
     ...Platform.select({
       ios: {
         shadowColor: 'black',

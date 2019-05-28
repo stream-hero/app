@@ -14,11 +14,13 @@ const AuthStack = createStackNavigator({ SignIn: SignInScreen })
 export default createAppContainer(createSwitchNavigator({
   // You could add another route here for authentication.
   // Read more at https://reactnavigation.org/docs/en/auth-flow.html
-  AuthLoading: AuthLoadingScreen,
   Main: MainTabNavigator,
+  AuthLoading: AuthLoadingScreen,
   App: AppStack,
   Auth: AuthStack
-}, { initialRouteName: 'AuthLoading' }))
+}))
+
+FROR PAGE TRANSICTIONS
 
 // import createAnimatedSwitchNavigator from 'react-navigation-animated-switch';
 // import { Transition } from 'react-native-reanimated';
