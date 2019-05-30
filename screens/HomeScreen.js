@@ -42,7 +42,7 @@ export default class HomeScreen extends React.Component {
             </View>
 
             <Text style={styles.getStartedText}>
-              Change this FART and your app will automatically reload.
+              Change this !FART and your app will automatically reload.
             </Text>
           </View>
 

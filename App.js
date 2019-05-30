@@ -1,7 +1,7 @@
 import React from 'react';
 import { Platform, StatusBar, StyleSheet, View } from 'react-native';
 import { AppLoading, Asset, Font, Icon } from 'expo';
-// import { socketID } from 'socket-io.client';
+import io from 'socket.io-client';
 // import { Accelerometer } from "react-native-sensors";
 
 import AppNavigator from './navigation/AppNavigator';
@@ -11,7 +11,6 @@ import OtherScreen from './screens/OtherScreen'
 import SignInScreen from './screens/SignInScreen'
 import LoginScreen from './screens/LoginScreen'
 
-// Creating the socket-client instance will automatically connect to the server.
 
 const styles = StyleSheet.create({
   container: {
@@ -21,11 +20,17 @@ const styles = StyleSheet.create({
 });
 
 class App extends React.Component {
+	constructor(props) {
+		super(props)
+
+		// Creating the socket-client instance will automatically connect to the server.
+		this.socket = io('http://10.0.0.182:3000');
+		this.socket.on("message", this._handleMessage);
+	}
+
   state = {
     isLoadingComplete: false,
   };
-
-	// socket = SocketIOClient('http://localhost:3000');
 
   render() {
     if (!this.state.isLoadingComplete && !this.props.skipLoadingScreen) {
@@ -60,6 +65,10 @@ class App extends React.Component {
         'space-mono': require('./assets/fonts/SpaceMono-Regular.ttf'),
       }),
     ]);
+  };
+
+  _handleMessage = msg => {
+  	console.log(msg);
   };
 
   _handleLoadingError = error => {
